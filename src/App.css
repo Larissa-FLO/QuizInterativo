@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+h1{
+  font-size: 55px;
+  text-shadow: 0 7px 10px black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 7px;
+}
+
+.caixaMaior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -13,12 +13,14 @@ export default function Quizz() {
     function checkNivel(){
         setNivel(questions[perguntaAtual].nivel)
         console.log(nivel)
-        if (nivel == "facil") {
-           document.querySelector('.contagemPerguntas').style.background = "green"
-        } else if (nivel == "medio") {
-            document.querySelector('.contagemPerguntas').style.background = "yellow"
+        if (nivel === "facil") {
+           document.querySelector('.container').style.background =  "radial-gradient(circle at 43.84% 120.44%, #859533 0, #769333 12.5%, #608e2f 25%, #438327 37.5%, #12751c 50%, #006614 62.5%, #005b14 75%, #00541a 87.5%, #005123 100%)"
+        } else if (nivel === "medio") {
+            document.querySelector('.container').style.background = "radial-gradient(circle at 25.82% 116.45%, #ffff8e 0, #ffff5d 25%, #eaea10 50%, #b5c700 75%, #83aa00 100%)"
+            document.querySelector('.pergunta').style.color = "black"
         } else {
-            document.querySelector('.contagemPerguntas').style.background = "red"
+            document.querySelector('.container').style.background = "radial-gradient(circle at 38.64% 114.41%, #ee6e00 0, #e75b00 16.67%, #db470a 33.33%, #cc3016 50%, #bb151c 66.67%, #ac0020 83.33%, #9d0024 100%)"
+            document.querySelector('.pergunta').style.color = "white"
         }
     }
   
@@ -34,8 +36,6 @@ export default function Quizz() {
         }else{
             setShowPontuacao(true)
         }
-
-        
     }
 
   useEffect(() => {
@@ -43,20 +43,26 @@ export default function Quizz() {
   },[perguntaAtual])
 
     return (
+    
     <div className='container'> 
+    
         {showPontuacao ? (<div className='pontuacao'>
             <span>sua pontuação é {pontos} de {questions.length}</span></div>):(
         <>
         <div className='infoperguntas'>
             <div className='contagemPerguntas'>
                 <span>Pergunta {perguntaAtual + 1}/{questions.length}</span>
+            </div>  
+        {questions[perguntaAtual].link && (
+            <div className='imagem'>
+                <img src={questions[perguntaAtual].link} alt="imagem da pergunta"></img>
             </div>
+        )}        
             <div className='pergunta'>{questions[perguntaAtual].pergunta}</div>
         </div>
         <div className='resposta'>
             {questions[perguntaAtual].opcoesResposta.map((opcoesResposta) =>
             <div className='grupoReposta'>
-                <span>{opcoesResposta.alternativa}</span>
                 <button onClick={() => proximaPergunta(opcoesResposta.correta)}>{opcoesResposta.resposta}</button>
             </div>)}
             

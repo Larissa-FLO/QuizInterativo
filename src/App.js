@@ -6,10 +6,12 @@ import Quizz from './quiz';
 function App() {
   return (
   <>
-  <h1>TESTE</h1>
+  <div className='caixaMaior'>
+  <h1>Quiz Game of Thrones</h1>
   <Quizz>
 
   </Quizz>
+  </div>
   </>
   );
 }
