@@ -58,14 +58,16 @@ export default function Quizz() {
                 <img src={questions[perguntaAtual].link} alt="imagem da pergunta"></img>
             </div>
         )}        
-            <div className='pergunta'>{questions[perguntaAtual].pergunta}</div>
         </div>
+        <div className='pergunta-resposta'>
+        <div className='pergunta'>{questions[perguntaAtual].pergunta}</div>
         <div className='resposta'>
             {questions[perguntaAtual].opcoesResposta.map((opcoesResposta) =>
             <div className='grupoReposta'>
                 <button onClick={() => proximaPergunta(opcoesResposta.correta)}>{opcoesResposta.resposta}</button>
             </div>)}
             
+        </div>
         </div>
     </>
     )}
